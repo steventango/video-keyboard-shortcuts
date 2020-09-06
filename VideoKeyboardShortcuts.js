@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         VideoKeyboardShortcuts
-// @namespace    https://github.com/TangSteven/VideoKeyboardShortcuts
+// @namespace    https://github.com/steventango/VideoKeyboardShortcuts
 // @version      1.1.0
 // @author       Steven Tang
 // @match        https://www.youtube.com/*
