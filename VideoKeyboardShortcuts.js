@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VideoKeyboardShortcuts
-// @namespace    https://github.com/steventango/VideoKeyboardShortcuts
-// @version      1.1.0
+// @namespace    https://github.com/steventango/video-keyboard-shortcuts
+// @version      1.2.0
 // @author       Steven Tang
 // @match        https://www.youtube.com/*
 // @match        https://meet.google.com/*
@@ -11,110 +11,111 @@
 // @match        https://www.gogoanime1.com/*
 // @match        https://courses.edx.org/*
 // @match        file:///*.mp4
+// @match        http*://*/*.mp4
 // @grant        none
 // ==/UserScript==
 
 var VideoKeyboardShortcuts = {
-  elements: [],
-  initated: false,
-  pip_state: false,
-  pip_interval: null,
-  init() {
-    if (!VideoKeyboardShortcuts.initated) {
-      document.addEventListener('keydown', VideoKeyboardShortcuts.keydown);
-      VideoKeyboardShortcuts.initated = true;
-    }
-  },
-  getElements() {
-    VideoKeyboardShortcuts.elements = Array.from(document.querySelectorAll('video')).sort((a, b) => a.paused - b.paused === 0 ? b.clientWidth - a.clientWidth : a.paused - b.paused);
-  },
-  pip() {
-    if (VideoKeyboardShortcuts.pip_state) {
-      VideoKeyboardShortcuts.getElements();
-      let element = VideoKeyboardShortcuts.elements[0];
-      if (element !== document.pictureInPictureElement) {
-        element.requestPictureInPicture();
-        if (document.domain !== 'meet.google.com') {
-          element.addEventListener('leavepictureinpicture', _ => VideoKeyboardShortcuts.pip_state = false);
+    elements: [],
+    initated: false,
+    pip_state: false,
+    pip_interval: null,
+    init() {
+        if (!VideoKeyboardShortcuts.initated) {
+            document.addEventListener('keydown', VideoKeyboardShortcuts.keydown);
+            VideoKeyboardShortcuts.initated = true;
         }
-      }
-    }
-  },
-  keydown(event) {
-    if (["INPUT", "TEXTAREA", "SELECT", "BUTTON"].indexOf(event.target.tagName) < 0) {
-      VideoKeyboardShortcuts.getElements();
-      if (document.domain !== 'www.youtube.com') {
-        switch (event.key) {
-          case 'j':
-            VideoKeyboardShortcuts.elements.map(element => {
-              element.currentTime -= 10;
-            });
-            break;
-          case 'k':
-          case ' ':
-            VideoKeyboardShortcuts.elements.map(element => {
-              if (element.paused) {
-                element.play();
-              } else {
-                element.pause();
-              }
-            });
-            break;
-          case 'l':
-            VideoKeyboardShortcuts.elements.map(element => {
-              element.currentTime += 10;
-            });
-            break;
-          case 'ArrowLeft':
-            VideoKeyboardShortcuts.elements.map(element => {
-              element.currentTime -= 5;
-            });
-            break;
-          case 'ArrowRight':
-            VideoKeyboardShortcuts.elements.map(element => {
-              element.currentTime += 5;
-            });
-            break;
-          default:
-            var number = Number(event.key);
-            if (Number.isInteger(number)) {
-              let percent = number / 10;
-              VideoKeyboardShortcuts.elements.map(element => {
-                element.currentTime = percent * element.duration;
-              });
+    },
+    getElements() {
+        VideoKeyboardShortcuts.elements = Array.from(document.querySelectorAll('video')).sort((a, b) => a.paused - b.paused === 0 ? b.clientWidth - a.clientWidth : a.paused - b.paused);
+    },
+    pip() {
+        if (VideoKeyboardShortcuts.pip_state) {
+            VideoKeyboardShortcuts.getElements();
+            let element = VideoKeyboardShortcuts.elements[0];
+            if (element !== document.pictureInPictureElement) {
+                element.requestPictureInPicture();
+                if (document.domain !== 'meet.google.com') {
+                    element.addEventListener('leavepictureinpicture', _ => VideoKeyboardShortcuts.pip_state = false);
+                }
             }
-            break;
         }
-      }
-      switch (event.key) {
-        case 'p':
-          VideoKeyboardShortcuts.pip_state = !VideoKeyboardShortcuts.pip_state;
-          if (VideoKeyboardShortcuts.pip_state) {
-            VideoKeyboardShortcuts.pip();
-            VideoKeyboardShortcuts.pip_interval = window.setInterval(VideoKeyboardShortcuts.pip, 100);
-          } else {
-            window.clearInterval(VideoKeyboardShortcuts.pip_interval);
-            if (document.pictureInPictureElement) {
-              document.exitPictureInPicture();
+    },
+    keydown(event) {
+        if (["INPUT", "TEXTAREA", "SELECT", "BUTTON"].indexOf(event.target.tagName) < 0) {
+            VideoKeyboardShortcuts.getElements();
+            if (document.domain !== 'www.youtube.com') {
+                switch (event.key) {
+                    case 'j':
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            element.currentTime -= 10;
+                        });
+                        break;
+                    case 'k':
+                    case ' ':
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            if (element.paused) {
+                                element.play();
+                            } else {
+                                element.pause();
+                            }
+                        });
+                        break;
+                    case 'l':
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            element.currentTime += 10;
+                        });
+                        break;
+                    case 'ArrowLeft':
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            element.currentTime -= 5;
+                        });
+                        break;
+                    case 'ArrowRight':
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            element.currentTime += 5;
+                        });
+                        break;
+                    default:
+                        var number = Number(event.key);
+                        if (Number.isInteger(number)) {
+                            let percent = number / 10;
+                            VideoKeyboardShortcuts.elements.map(element => {
+                                element.currentTime = percent * element.duration;
+                            });
+                        }
+                        break;
+                }
             }
-          }
-          break;
-        case '>':
-          if (event.shiftKey && event.ctrlKey) {
-            const velocity = prompt('Video Playback Rate:') || 1;
-            VideoKeyboardShortcuts.elements.map(element => {
-              element.playbackRate = Math.min(16, Math.max(0.0625, velocity));
-            });
-          }
-          break;
-        case 't':
-          VideoKeyboardShortcuts.elements.map(element => {
-            const time = prompt('Time HH:MM:SS').split(':').map((v,i,a) => v * 60 ** (a.length - i - 1)).reduce((a, b) => a + b);
-            element.currentTime = time;
-          });
-          break;
-      }
+            switch (event.key) {
+                case 'p':
+                    VideoKeyboardShortcuts.pip_state = !VideoKeyboardShortcuts.pip_state;
+                    if (VideoKeyboardShortcuts.pip_state) {
+                        VideoKeyboardShortcuts.pip();
+                        VideoKeyboardShortcuts.pip_interval = window.setInterval(VideoKeyboardShortcuts.pip, 100);
+                    } else {
+                        window.clearInterval(VideoKeyboardShortcuts.pip_interval);
+                        if (document.pictureInPictureElement) {
+                            document.exitPictureInPicture();
+                        }
+                    }
+                    break;
+                case '>':
+                    if (event.shiftKey && event.ctrlKey) {
+                        const velocity = prompt('Video Playback Rate:') || 1;
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            element.playbackRate = Math.min(16, Math.max(0.0625, velocity));
+                        });
+                    }
+                    break;
+                case 't':
+                    VideoKeyboardShortcuts.elements.map(element => {
+                        const time = prompt('Time HH:MM:SS').split(':').map((v, i, a) => v * 60 ** (a.length - i - 1)).reduce((a, b) => a + b);
+                        element.currentTime = time;
+                    });
+                    break;
+            }
+        }
     }
-  }
 }
 VideoKeyboardShortcuts.init();
