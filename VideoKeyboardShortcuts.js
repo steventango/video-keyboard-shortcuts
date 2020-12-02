@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
-// @version      1.2.0
+// @version      1.2.1
 // @author       Steven Tang
 // @match        https://www.youtube.com/*
 // @match        https://meet.google.com/*
@@ -12,6 +12,7 @@
 // @match        https://courses.edx.org/*
 // @match        file:///*.mp4
 // @match        http*://*/*.mp4
+// @match        https://youtube.googleapis.com/embed/*
 // @grant        none
 // ==/UserScript==
 
