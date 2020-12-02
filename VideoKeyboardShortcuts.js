@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
-// @version      1.2.1
+// @version      1.2.2
 // @author       Steven Tang
 // @match        https://www.youtube.com/*
 // @match        https://meet.google.com/*
@@ -45,7 +45,7 @@ var VideoKeyboardShortcuts = {
     keydown(event) {
         if (["INPUT", "TEXTAREA", "SELECT", "BUTTON"].indexOf(event.target.tagName) < 0) {
             VideoKeyboardShortcuts.getElements();
-            if (document.domain !== 'www.youtube.com') {
+            if (['www.youtube.com', 'youtube.googleapis.com'].indexOf(document.domain) < 0) {
                 switch (event.key) {
                     case 'j':
                         VideoKeyboardShortcuts.elements.map(element => {
