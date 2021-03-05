@@ -1,12 +1,10 @@
 // ==UserScript==
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
-// @version      1.2.3
+// @version      1.2.4
 // @author       Steven Tang
 // @match        https://www.youtube.com/*
 // @match        https://meet.google.com/*
-// @match        http*://kissanime.ru/*
-// @match        http*://kissasian.sh/*
 // @match        http*://www3.dramacool.movie/*
 // @match        https://www.gogoanime1.com/*
 // @match        https://courses.edx.org/*
@@ -14,6 +12,7 @@
 // @match        http*://*/*.mp4
 // @match        https://youtube.googleapis.com/embed/*
 // @match        https://eclass.srv.ualberta.ca/*
+// @match        https://*.zoom.us/*
 // @grant        none
 // ==/UserScript==
 
