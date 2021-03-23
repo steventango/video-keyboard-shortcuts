@@ -4,7 +4,7 @@ Use this UserScript to add useful keyboard shortcuts to any HTML video.
 
 ## Installation
 1. Download a userscript manager (for example, [Tampermonkey](https://www.tampermonkey.net/))
-2. Click to install with userscript manager: [videokeyboardshortcuts.user.js](https://raw.githubusercontent.com/steventango/video-keyboard-shortcuts/master/videokeyboardshortcuts.user.js)
+2. Click to install with userscript manager: [videokeyboardshortcuts.user.js](https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js)
 3. Configure scripts as necessary in the userscript manager.
 
 ## Features
