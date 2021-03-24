@@ -2,9 +2,9 @@
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
-// @version      1.4.0
-// @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/videokeyboardshortcuts.user.js
-// @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/videokeyboardshortcuts.user.js
+// @version      1.5.0
+// @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
+// @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @match        https://www.youtube.com/*
 // @match        https://meet.google.com/*
 // @match        http*://www3.dramacool.movie/*
