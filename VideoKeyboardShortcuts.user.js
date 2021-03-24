@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
-// @version      1.2.4
 // @author       Steven Tang
+// @version      1.3.0
+// @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/videokeyboardshortcuts.user.js
+// @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/videokeyboardshortcuts.user.js
 // @match        https://www.youtube.com/*
 // @match        https://meet.google.com/*
 // @match        http*://www3.dramacool.movie/*
