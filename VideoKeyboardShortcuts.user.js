@@ -2,7 +2,7 @@
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
-// @version      1.3.0
+// @version      1.4.0
 // @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/videokeyboardshortcuts.user.js
 // @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/videokeyboardshortcuts.user.js
 // @match        https://www.youtube.com/*
@@ -55,7 +55,6 @@ var VideoKeyboardShortcuts = {
                         });
                         break;
                     case 'k':
-                    case ' ':
                         VideoKeyboardShortcuts.elements.map(element => {
                             if (element.paused) {
                                 element.play();

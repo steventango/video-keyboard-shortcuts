@@ -10,7 +10,7 @@ Use this UserScript to add useful keyboard shortcuts to any HTML video.
 ## Features
 Action | Keyboard Shortcut
 --- | ---
-Toggle play/pause the video | k or Spacebar
+Toggle play/pause the video | k
 Go back 5 seconds | Left arrow
 Go back 10 seconds | j
 Go forward 5 seconds | Right arrow
