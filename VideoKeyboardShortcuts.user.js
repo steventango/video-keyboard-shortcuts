@@ -2,7 +2,7 @@
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
-// @version      1.5.0
+// @version      1.6.0
 // @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @match        https://www.youtube.com/*
@@ -79,8 +79,8 @@ var VideoKeyboardShortcuts = {
                         });
                         break;
                     default:
-                        var number = Number(event.key);
-                        if (Number.isInteger(number)) {
+                        var number = Number.parseInt(event.key);
+                        if (!isNaN(number)) {
                             let percent = number / 10;
                             VideoKeyboardShortcuts.elements.map(element => {
                                 element.currentTime = percent * element.duration;
