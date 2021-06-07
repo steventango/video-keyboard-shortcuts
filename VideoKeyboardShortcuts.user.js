@@ -2,7 +2,7 @@
 // @name         VideoKeyboardShortcuts
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
-// @version      1.6.0
+// @version      1.7.0
 // @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @match        https://www.youtube.com/*
@@ -15,6 +15,7 @@
 // @match        https://youtube.googleapis.com/embed/*
 // @match        https://eclass.srv.ualberta.ca/*
 // @match        https://*.zoom.us/*
+// @match        https://www.twitch.tv/*
 // @grant        none
 // ==/UserScript==
 
