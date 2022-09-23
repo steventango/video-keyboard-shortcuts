@@ -3,7 +3,7 @@
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
 // @description  Video Keyboard Shortcuts for any HTML video element.
-// @version      1.9.0
+// @version      1.9.1
 // @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @match        https://www.youtube.com/*
@@ -105,7 +105,7 @@ const VideoKeyboardShortcuts = {
                     }
                     break;
                 case '.':
-                    if (event.shiftKey && event.metaKey) {
+                    if (event.shiftKey && (event.metaKey || event.ctrlKey)) {
                         const velocity = prompt('Video Playback Rate:') || 1;
                         VideoKeyboardShortcuts.elements.map(element => {
                             element.playbackRate = Math.min(16, Math.max(0.0625, velocity));
