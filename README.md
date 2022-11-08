@@ -19,4 +19,5 @@ Skip to a particular section of the video | 1 - 9
 Restart video | 0
 Picture in picture | p
 Jump to time (HH:MM:SS)| t
-Change speed | CTRL + >
+Change speed | CTRL/CMD + SHIFT + .
+Downlaod | CTRL/CMD + Down arrow
