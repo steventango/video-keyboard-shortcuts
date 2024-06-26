@@ -3,7 +3,7 @@
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
 // @description  Video Keyboard Shortcuts for any HTML video element.
-// @version      1.10.0
+// @version      1.11.0
 // @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @match        https://www.youtube.com/*
@@ -68,6 +68,15 @@ const VideoKeyboardShortcuts = {
                     case 'l':
                         VideoKeyboardShortcuts.elements.map(element => {
                             element.currentTime += 10;
+                        });
+                        break;
+                    case 'm':
+                        VideoKeyboardShortcuts.elements.map(element => {
+                            if (element.muted) {
+                                element.muted = false;
+                            } else {
+                                element.muted = true;
+                            }
                         });
                         break;
                     case 'ArrowLeft':

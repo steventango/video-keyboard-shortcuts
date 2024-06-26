@@ -15,6 +15,7 @@ Go back 5 seconds | Left arrow
 Go back 10 seconds | j
 Go forward 5 seconds | Right arrow
 Go forward 10 seconds | l
+Mute/unmute the video | m
 Skip to a particular section of the video | 1 - 9
 Restart video | 0
 Picture in picture | p
