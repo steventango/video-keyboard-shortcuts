@@ -3,7 +3,7 @@
 // @namespace    https://github.com/steventango/video-keyboard-shortcuts
 // @author       Steven Tang
 // @description  Video Keyboard Shortcuts for any HTML video element.
-// @version      1.11.0
+// @version      1.12.0
 // @updateURL    https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @downloadURL  https://github.com/steventango/video-keyboard-shortcuts/raw/master/VideoKeyboardShortcuts.user.js
 // @match        https://www.youtube.com/*
@@ -25,6 +25,7 @@ const VideoKeyboardShortcuts = {
     initated: false,
     pip_state: false,
     pip_interval: null,
+    keys: new Set(),
     init() {
         if (!VideoKeyboardShortcuts.initated) {
             document.addEventListener('keydown', VideoKeyboardShortcuts.keydown);
@@ -47,6 +48,10 @@ const VideoKeyboardShortcuts = {
         }
     },
     keydown(event) {
+        if (VideoKeyboardShortcuts.keys.has(event)) {
+            return;
+        }
+        VideoKeyboardShortcuts.keys.add(event);
         if (["INPUT", "TEXTAREA", "SELECT", "BUTTON"].indexOf(event.target.tagName) < 0) {
             VideoKeyboardShortcuts.getElements();
             if (['www.youtube.com', 'youtube.googleapis.com'].indexOf(document.domain) < 0) {
